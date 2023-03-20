@@ -12,6 +12,18 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        //ユーザー初期設定
+        DB::table('users')->insert([
+            'over_name' => '柏倉',
+            'under_name' => '希奈',
+            'over_name_kana' => 'カシワグラ',
+            'under_name_kana' => 'キナ',
+            'mail_address' => 'kina0909@yahoo.co.jp',
+            'sex'=> '2',
+            'birth_day' => '1997/09/09',
+            'role' => '3',
+            'password' => bcrypt('kina0909'),
+        ]);
 
     }
 }
