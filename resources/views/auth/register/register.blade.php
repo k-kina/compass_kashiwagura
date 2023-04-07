@@ -13,6 +13,7 @@
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 </head>
 <body>
+  <!-- バリデーション表示
   @if ($errors->any())
 <div class="alert alert-danger">
   <ul>
@@ -21,7 +22,7 @@
     @endforeach
   </ul>
 </div>
-@endif
+@endif-->
 
   <form action="{{ route('registerPost') }}" method="POST">
     <div class="w-100 vh-100 d-flex" style="align-items:center; justify-content:center;">
@@ -29,6 +30,10 @@
         <div class="register_form">
           <div class="d-flex mt-3" style="justify-content:space-between">
             <div class="" style="width:140px">
+            <!-- バリデーション -->
+            @error('over_name')
+  <li>{{$message}}</li>
+@enderror
               <label class="d-block m-0" style="font-size:13px">姓</label>
               <div class="border-bottom border-primary" style="width:140px;">
                 <input type="text" style="width:140px;" class="border-0 over_name" name="over_name">
@@ -176,6 +181,9 @@
         </div>
         <div class="mt-3">
           <label class="d-block m-0" style="font-size:13px">パスワード</label>
+          @error('password')
+  <li>{{$message}}</li>
+@enderror
           <div class="border-bottom border-primary">
             <input type="password" class="border-0 w-100 password" name="password">
           </div>
