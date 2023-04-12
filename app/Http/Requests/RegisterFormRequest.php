@@ -21,10 +21,36 @@ class RegisterFormRequest extends FormRequest
      *
      * @return array
      */
+
+     public function getValidatorInstance()
+    {
+        $old_year=$this->input('old_year');
+        //dd($old_year);
+
+        $old_month=$this->input('old_month');
+        //dd($old_month);
+
+        $old_day=$this->input('old_day');
+        //dd($old_day);
+
+        // 日付を作成(ex. 2020-1-20)
+       $birth_day = $old_year . '-' . $old_month . '-' . $old_day;
+       //dd($birth_day);
+
+        // rules()に渡す値を追加でセット
+        //     これで、この場で作った変数にもバリデーションを設定できるようになる
+        $this->merge([
+            '$birth_day' => $birth_day,
+        ]);
+        //dd($birth_day);
+
+        return parent::getValidatorInstance();
+    }
+
     // バリデーションルール
     public function rules()
     {
-        ddd('test');
+        //ddd('test');
         return [
                 'over_name' => 'required|string|max:10',
                 'under_name' => 'required|string|max:10',
@@ -32,9 +58,9 @@ class RegisterFormRequest extends FormRequest
                 'under_name_kana' => 'required|string|regex:/^[ァ-ヶー]+$/u|max:30',
                 'mail_address' => 'required|email|max:100',
                 'sex' => 'required|',
-                // 'old_year' => new AllRequired('old_month','old_day'),
+                'birth_day' => 'required|string|date',
                 'role' => 'required|',
-                'password' => 'required|between:8,30|confirmed',
+                'password' => 'required|string|confirmed|between:8,30|',
         ];
     }
 
@@ -47,7 +73,7 @@ class RegisterFormRequest extends FormRequest
         'under_name_kana' => 'メイ',
         'mail_address' => 'メールアドレス',
         'sex' => '性別',
-        // 'old_year' => '生年月日',
+        'birth_day' => '生年月日',
         'role' => '役職',
         'password' => 'パスワード',
         ];
@@ -68,7 +94,7 @@ class RegisterFormRequest extends FormRequest
         'mail_address.required' => ':attributeを入力してください。',
         'mail_address.max' => ':attributeは100文字以下で入力してください。',
         'sex.required' => ':attributeを入力してください。',
-        // 'AllRequired::class' => ':attributeを入力してください。',
+        'birth_day.required' => ':attributeを入力してください。',
         'role.required' => ':attributeを入力してください。',
         'password.required' => ':attributeを入力してください。',
         'password.between' => ':attributeは8文字以上30文字以下で入力してください。',
