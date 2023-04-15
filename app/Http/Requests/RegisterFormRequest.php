@@ -40,7 +40,7 @@ class RegisterFormRequest extends FormRequest
         // rules()に渡す値を追加でセット
         //     これで、この場で作った変数にもバリデーションを設定できるようになる
         $this->merge([
-            '$birth_day' => $birth_day,
+            'birth_day' => $birth_day,
         ]);
         //dd($birth_day);
 
