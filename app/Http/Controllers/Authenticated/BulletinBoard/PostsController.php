@@ -8,6 +8,7 @@ use App\Models\Categories\MainCategory;
 use App\Models\Categories\SubCategory;
 use App\Models\Posts\Post;
 use App\Models\Posts\PostComment;
+use App\Models\Posts\CommentCounts;
 use App\Models\Posts\Like;
 use App\Models\Users\User;
 use App\Http\Requests\BulletinBoard\PostFormRequest;
