@@ -15,5 +15,5 @@ class Like extends Model
 
     public function likeCounts($post_id){
         return $this->where('like_post_id', $post_id)->get()->count();
-    }
+    }// like_post_idカラムの値が$post_idと一致する値を全て取得し、count()メソッドでレコードの数を取得する
 }
