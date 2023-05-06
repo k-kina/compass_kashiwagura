@@ -22,7 +22,7 @@ class UsersController extends Controller
         $role = $request->role;
         //dd($role);
         $subjects = $request->subject;
-        dd($subjects);// ここで検索時の科目を受け取る
+        //dd($subjects);// ここで検索時の科目を受け取る
         $userFactory = new SearchResultFactories();
         $users = $userFactory->initializeUsers($keyword, $category, $updown, $gender, $role, $subjects);
         //dd($subjects);
