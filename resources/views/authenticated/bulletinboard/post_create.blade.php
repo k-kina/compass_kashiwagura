@@ -43,9 +43,9 @@
       <!-- サブカテゴリー追加 -->
       <p class="m-0">サブカテゴリー</p>
       <form action="{{ route('sub.category.create') }}" method="post" id="subCategoryRequest">
-      <select class="w-100" form="subCategoryRequest" name="sub_category_name">
+      <select class="w-100" form="subCategoryRequest" name="main_category_id" value="{{ old('main_category_id') }}">
         @foreach($main_categories as $main_category)
-        <option label="{{ $main_category->main_category }}"></option>
+        <option value="{{ $main_category->id }}">{{ $main_category->main_category }}</option>
         @endforeach
 </select>
       {{ csrf_field() }}</form>
