@@ -4,6 +4,8 @@ namespace App\Models\Categories;
 
 use Illuminate\Database\Eloquent\Model;
 
+use App\Models\Posts\Post;
+
 class SubCategory extends Model
 {
     const UPDATED_AT = null;
@@ -19,7 +21,7 @@ class SubCategory extends Model
 
     public function posts(){
         // リレーションの定義
-        return $this->belongsToMany('App\Models\Posts\Post','post_sub_categories','sub_category_id','post_id');
+        return $this->belongsToMany('App\Models\Posts\Post','post_sub_categories','sub_category_id','post_id')->withPivot('id');
     }
 
 
