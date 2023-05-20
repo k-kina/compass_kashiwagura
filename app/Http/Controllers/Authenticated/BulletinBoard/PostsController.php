@@ -18,25 +18,38 @@ use Auth;
 class PostsController extends Controller
 {
     public function show(Request $request){
+        //dd($request);
         $posts = Post::with('user', 'postComments')->get();
         $categories = MainCategory::get();
+        //dd($categories);
         $like = new Like;
+        //dd($like);
         $post_comment = new Post;
+        $sub_categories = SubCategory::get();
+        //dd($sub_categories);
         if(!empty($request->keyword)){
             $posts = Post::with('user', 'postComments')
             ->where('post_title', 'like', '%'.$request->keyword.'%')
             ->orWhere('post', 'like', '%'.$request->keyword.'%')->get();
         }else if($request->category_word){
             $sub_category = $request->category_word;
+            //dd($sub_category);
             $posts = Post::with('user', 'postComments')->get();
         }else if($request->like_posts){
             $likes = Auth::user()->likePostId()->get('like_post_id');
+            //dd($likes);
             $posts = Post::with('user', 'postComments')
             ->whereIn('id', $likes)->get();
         }else if($request->my_posts){
+            //dd($request);
             $posts = Post::with('user', 'postComments')
             ->where('user_id', Auth::id())->get();
-        }
+            //dd($posts);
+        }else if ($request->sub_category) {
+            //dd($request);
+            $sub_categories = $request->sub_category;
+            $posts = Post::with('user', 'postComments')->get();
+                }
         return view('authenticated.bulletinboard.posts', compact('posts', 'categories', 'like', 'post_comment'));
     }
 
@@ -51,11 +64,17 @@ class PostsController extends Controller
     }
 
     public function postCreate(PostFormRequest $request){
+        //dd($request);
+        $subCategories = $request->input('post_category_id');
+        //dd($subCategories);
         $post = Post::create([
             'user_id' => Auth::id(),
             'post_title' => $request->post_title,
             'post' => $request->post_body
         ]);
+
+        $post = Post::findOrFail($post->id);
+        $post->subCategories()->attach($subCategories);
         return redirect()->route('post.show');
     }
 
@@ -71,12 +90,13 @@ class PostsController extends Controller
         Post::findOrFail($id)->delete();
         return redirect()->route('post.show');
     }
-    public function mainCategoryCreate(Request $request){
+    public function mainCategoryCreate(PostFormRequest $request){
+        //dd($request);
         MainCategory::create(['main_category' => $request->main_category_name]);
         return redirect()->route('post.input');
     }
 
-    public function subCategoryCreate(Request $request){
+    public function subCategoryCreate(PostFormRequest $request){
         $mainCategoryId = $request->main_category_id;
         //dd($mainCategoryId);
         SubCategory::create(['sub_category' => $request->sub_category_name, 'main_category_id' => $mainCategoryId]);
