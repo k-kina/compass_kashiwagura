@@ -32,9 +32,13 @@ class PostsController extends Controller
             ->where('post_title', 'like', '%'.$request->keyword.'%')
             ->orWhere('post', 'like', '%'.$request->keyword.'%')->get();
         }else if($request->category_word){
+            //dd($request);
             $sub_category = $request->category_word;
             //dd($sub_category);
-            $posts = Post::with('user', 'postComments')->get();
+            $posts = Post::with('user', 'postComments','subCategories')
+            ->whereHas('subCategories', function($q) use ($sub_category){
+            $q->where('sub_category',$sub_category);
+            })->get();
         }else if($request->like_posts){
             $likes = Auth::user()->likePostId()->get('like_post_id');
             //dd($likes);
@@ -45,11 +49,7 @@ class PostsController extends Controller
             $posts = Post::with('user', 'postComments')
             ->where('user_id', Auth::id())->get();
             //dd($posts);
-        }else if ($request->sub_category) {
-            //dd($request);
-            $sub_categories = $request->sub_category;
-            $posts = Post::with('user', 'postComments')->get();
-                }
+        }
         return view('authenticated.bulletinboard.posts', compact('posts', 'categories', 'like', 'post_comment'));
     }
 
