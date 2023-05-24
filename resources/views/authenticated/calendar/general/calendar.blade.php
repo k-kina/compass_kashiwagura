@@ -15,4 +15,24 @@
     </div>
   </div>
 </div>
+<div class="modal js-modal">
+  <div class="modal__bg js-modal-close"></div>
+  <div class="modal__content">
+    <form action="{{ route('deleteParts') }}" method="post" id="deleteRequest">
+      <div class="w-100">
+        <div class="modal-inner-title w-50 m-auto">
+          <span>予約日:<input type="text" name="date" style="border:none;" readonly></span>
+        </div>
+        <div class="modal-inner-body w-50 m-auto">
+          <span>時間:リモ<input type="text" name="part" style="border:none;" readonly>部</span>
+        </div>
+        <div class="w-50 m-auto edit-modal-btn d-flex">
+          <a class="js-modal-close btn btn-primary d-inline-block" href="">閉じる</a>
+          <input type="submit" class="btn btn-danger d-block" value="キャンセル">
+        </div>
+      </div>
+      {{ csrf_field() }}
+    </form>
+  </div>
+</div>
 @endsection
