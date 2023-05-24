@@ -19,14 +19,20 @@ class CalendarsController extends Controller
     }
 
     public function reserve(Request $request){
+        //dd($request);
         DB::beginTransaction();
         try{
             $getPart = $request->getPart;
             $getDate = $request->getData;
+            //dd($getDate);
             $reserveDays = array_filter(array_combine($getDate, $getPart));
+            //dd($reserveDays);
             foreach($reserveDays as $key => $value){
-                $reserve_settings = ReserveSettings::where('setting_reserve', $key)->where('setting_part', $value)->first();
+                $reserve_settings = ReserveSettings::where('setting_reserve', $key)->where
+                ('setting_part', $value)->first();
+                //dd($reserve_settings);
                 $reserve_settings->decrement('limit_users');
+                //dd($reserve_settings);
                 $reserve_settings->users()->attach(Auth::id());
             }
             DB::commit();
@@ -35,4 +41,23 @@ class CalendarsController extends Controller
         }
         return redirect()->route('calendar.general.show', ['user_id' => Auth::id()]);
     }
+
+    public function delete(Request $request){
+        //dd($request);
+        $getPart = $request->part;
+        $getDate = $request->date;
+        //dd($getPart);
+        //dd($getDate);
+        $key = $getDate;
+        //dd($key);
+        $value = $getPart;
+        //dd($value);
+        $reserve_settings = ReserveSettings::where('setting_reserve', $key)->where('setting_part', $value)->first();
+                $reserve_settings->increment('limit_users');
+                //dd($reserve_settings);
+                $reserve_settings->users()->detach(Auth::id());
+
+        return redirect()->route('calendar.general.show', ['user_id' => Auth::id()]);
+    }
+
 }
