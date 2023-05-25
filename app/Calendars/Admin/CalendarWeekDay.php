@@ -32,7 +32,7 @@ class CalendarWeekDay{
 
     $html[] = '<div class="text-left">';
     if($one_part){
-      $html[] = '<p><span class="day_part">1部</span><span>'.$one_part->users($one_part->id)->count().'</span></p>';
+      $html[] = '<span class="day_part">1部</span><span>'.$one_part->users($one_part->id)->count().'</span>';
       //dd($one_part);
 
     }
