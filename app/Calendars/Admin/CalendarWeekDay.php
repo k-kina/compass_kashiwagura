@@ -26,18 +26,22 @@ class CalendarWeekDay{
   function dayPartCounts($ymd){
     $html = [];
     $one_part = ReserveSettings::with('users')->where('setting_reserve', $ymd)->where('setting_part', '1')->first();
+
     $two_part = ReserveSettings::with('users')->where('setting_reserve', $ymd)->where('setting_part', '2')->first();
     $three_part = ReserveSettings::with('users')->where('setting_reserve', $ymd)->where('setting_part', '3')->first();
 
     $html[] = '<div class="text-left">';
     if($one_part){
-      $html[] = '<p class="day_part m-0 pt-1">1部</p>';
+      $html[] = '<p><span class="day_part">1部</span><span>'.$one_part->users($one_part->id)->count().'</span></p>';
+      //dd($one_part);
+
     }
     if($two_part){
-      $html[] = '<p class="day_part m-0 pt-1">2部</p>';
+      $html[] = '<p><span class="day_part">2部</span><span>'.$two_part->users($two_part->id)->count().'</span></p>';
+      //dd($two_part);
     }
     if($three_part){
-      $html[] = '<p class="day_part m-0 pt-1">3部</p>';
+      $html[] = '<p><span class="day_part">3部</span><span>'.$three_part->users($three_part->id)->count().'</span></p>';
     }
     $html[] = '</div>';
 
