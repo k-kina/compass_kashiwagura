@@ -97,6 +97,7 @@ class RegisterFormRequest extends FormRequest
         'birth_day.required' => ':attributeを入力してください。',
         'role.required' => ':attributeを入力してください。',
         'password.required' => ':attributeを入力してください。',
+        'password.confirmed' => ':attributeと確認用パスワードが一致していません。',
         'password.between' => ':attributeは8文字以上30文字以下で入力してください。',
         ];
     }
