@@ -23,7 +23,7 @@
             <div class="" style="width:140px">
             <!-- バリデーション -->
             @error('over_name')
-         <li>{{$message}}</li>
+         <span class="error_message">{{$message}}</span>
          @enderror
               <label class="d-block m-0" style="font-size:13px">姓</label>
               <div class="border-bottom border-primary" style="width:140px;">
@@ -32,7 +32,7 @@
             </div>
             <div class="" style="width:140px">
             @error('under_name')
-         <li>{{$message}}</li>
+         <span class="error_message">{{$message}}</span>
          @enderror
               <label class=" d-block m-0" style="font-size:13px">名</label>
               <div class="border-bottom border-primary" style="width:140px;">
@@ -43,7 +43,7 @@
           <div class="d-flex mt-3" style="justify-content:space-between">
             <div class="" style="width:140px">
             @error('over_name_kana')
-         <li>{{$message}}</li>
+         <div class="error_message">{{$message}}</div>
          @enderror
               <label class="d-block m-0" style="font-size:13px">セイ</label>
               <div class="border-bottom border-primary" style="width:140px;">
@@ -52,7 +52,7 @@
             </div>
             <div class="" style="width:140px">
             @error('under_name_kana')
-         <li>{{$message}}</li>
+         <div class="error_message">{{$message}}</div>
          @enderror
               <label class="d-block m-0" style="font-size:13px">メイ</label>
               <div class="border-bottom border-primary" style="width:140px;">
@@ -62,7 +62,7 @@
           </div>
           <div class="mt-3">
             @error('mail_address')
-         <li>{{$message}}</li>
+         <div class="error_message">{{$message}}</div>
          @enderror
             <label class="m-0 d-block" style="font-size:13px">メールアドレス</label>
             <div class="border-bottom border-primary">
@@ -72,7 +72,7 @@
         </div>
         <div class="mt-3">
           @error('sex')
-         <li>{{$message}}</li>
+         <div class="error_message">{{$message}}</div>
          @enderror
           <input type="radio" name="sex" class="sex" value="1">
           <label style="font-size:13px">男性</label>
@@ -83,7 +83,7 @@
         </div>
         <div class="mt-3">
           @error('birth_day')
-         <li>{{$message}}</li>
+         <div class="error_message">{{$message}}</div>
          @enderror
           <label class="d-block m-0 aa" style="font-size:13px">生年月日</label>
           <select class="old_year" name="old_year">
@@ -170,7 +170,7 @@
         </div>
         <div class="mt-3">
           @error('role')
-         <li>{{$message}}</li>
+         <div class="error_message">{{$message}}</div>
          @enderror
           <label class="d-block m-0" style="font-size:13px">役職</label>
           <input type="radio" name="role" class="admin_role role" value="1">
@@ -193,7 +193,7 @@
         </div>
         <div class="mt-3">
           @error('password')
-          <li>{{$message}}</li>
+          <div class="error_message">{{$message}}</div>
           @enderror
           <label class="d-block m-0" style="font-size:13px">パスワード</label>
           <div class="border-bottom border-primary">
