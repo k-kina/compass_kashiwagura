@@ -26,6 +26,8 @@ class PostFormRequest extends FormRequest
         return [
             'post_title' => 'min:4|max:50',
             'post_body' => 'min:10|max:500',
+            'main_category_name' => 'string|max:100|unique:main_categories,main_category',
+            'sub_category_name' => 'string|max:100|unique:sub_categories,sub_category',
         ];
     }
 
@@ -35,6 +37,12 @@ class PostFormRequest extends FormRequest
             'post_title.max' => 'タイトルは50文字以内で入力してください。',
             'post_body.min' => '内容は10文字以上入力してください。',
             'post_body.max' => '最大文字数は500文字です。',
+            'main_category_name.string' => 'メインカテゴリーは文字列で入力してください。',
+            'main_category_name.max' => '最大文字数は100文字です。',
+            'main_category_name.unique' => '既に登録されています。',
+            'sub_category_name.string' => 'サブカテゴリーは文字列で入力してください。',
+            'sub_category_name.max' => '最大文字数は100文字です。',
+            'sub_category_name.unique' => '既に登録されています。',
         ];
     }
 }
