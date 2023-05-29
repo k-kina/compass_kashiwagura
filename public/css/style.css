@@ -380,6 +380,31 @@ span.day_count3 {
   display: none;
 }
 
+.free_word {
+  background-color: #CCCCCC;
+  border-radius: 10px;
+  border: none;
+  height: 40px;
+  margin-bottom: 15px;
+}
+
+.userSearch-category {
+  background-color: #CCCCCC;
+  border-radius: 10px;
+  border: none;
+  height: 30px;
+  margin-bottom: 15px;
+}
+
+.userSearch-upDown {
+  background-color: #CCCCCC;
+  border-radius: 10px;
+  border: none;
+  height: 30px;
+  margin-bottom: 15px;
+  width: 67px;
+}
+
 /* calendar.blade.php キャンセル機能 */
 input#text-modal {
   width: 15px;
