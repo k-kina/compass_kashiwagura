@@ -54,19 +54,19 @@
   </div>
   <div class="search_area w-25 border">
     <div class="">
-      <div>
-        <input type="text" class="free_word" name="keyword" placeholder="キーワードを検索" form="userSearchRequest">
+        <lavel>検索</lavel>
+        <br><input type="text" class="free_word" name="keyword" placeholder="キーワードを検索" form="userSearchRequest">
       </div>
       <div>
         <lavel>カテゴリ</lavel>
-        <select form="userSearchRequest" name="category">
+        <br><select form="userSearchRequest" class="userSearch-category" name="category">
           <option value="name">名前</option>
           <option value="id">社員ID</option>
         </select>
       </div>
       <div>
         <label>並び替え</label>
-        <select name="updown" form="userSearchRequest">
+        <br><select name="upDown" form="userSearchRequest" class="userSearch-upDown">
           <option value="ASC">昇順</option>
           <option value="DESC">降順</option>
         </select>
@@ -76,12 +76,12 @@
         <div class="search_conditions_inner">
           <div>
             <label>性別</label>
-            <span>男</span><input type="radio" name="sex" value="1" form="userSearchRequest">
+            <br><span>男</span><input type="radio" name="sex" value="1" form="userSearchRequest">
             <span>女</span><input type="radio" name="sex" value="2" form="userSearchRequest">
           </div>
           <div>
             <label>権限</label>
-            <select name="role" form="userSearchRequest" class="engineer">
+            <br><select name="role" form="userSearchRequest" class="engineer">
               <option selected disabled>----</option>
               <option value="1">教師(国語)</option>
               <option value="2">教師(数学)</option>
@@ -101,10 +101,10 @@
         </div>
       </div>
       <div>
-        <input type="reset" value="リセット" form="userSearchRequest">
+        <input type="reset" class="btn btn-link" value="リセット" form="userSearchRequest">
       </div>
       <div>
-        <input type="submit" name="search_btn" value="検索" form="userSearchRequest">
+        <input type="submit" class="btn btn-info" name="search_btn" value="検索" form="userSearchRequest">
       </div>
     </div>
     <form action="{{ route('user.show') }}" method="get" id="userSearchRequest"></form>
