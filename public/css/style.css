@@ -18,7 +18,7 @@ li {
 
 /* サイドバー */
 .sidebar {
-  width: 150px;
+  width: 175px;
   height: 100vh;
   background-color: #03AAD2;
   font-weight: bold;
@@ -45,7 +45,7 @@ li {
   border-radius: 10px;
 }
 
-/* トップページ */
+/* マイページ */
 .user_status {
   border-radius: 10px;
   background: #FFF;
@@ -77,6 +77,20 @@ li {
 .day_part {
   color: #494949;
   font-size: 12px;
+  margin-bottom: 5px;
+  padding-left: 20px;
+}
+
+span.day_count1 {
+  padding-left: 24px;
+}
+
+span.day_count2 {
+  padding-left: 22px;
+}
+
+span.day_count3 {
+  padding-left: 22px;
 }
 
 .adjust-table {
@@ -123,7 +137,7 @@ li {
 
 /* 掲示板 */
 .sub_categories {
-  display: none;
+  /* display: none; */
 }
 
 .post_create_area {
@@ -139,6 +153,7 @@ li {
 
 .detail_container {
   background: #FFF;
+  border-radius: 10px;
 }
 
 .post_area {
@@ -148,7 +163,62 @@ li {
 
 .post_bottom_area {
   justify-content: space-between;
+  margin-left: 85%;
+  margin-top: 1%;
 }
+
+.post-subCategories {
+  margin: 1px;
+  padding: 3px;
+  border-radius: 8px;
+  background-color: #03AAD2;
+  color: #FFF;
+}
+
+.post-text {
+  margin: 1px;
+  padding: 3px;
+  border-radius: 8px;
+  background-color: #03AAD2;
+  padding-left: 115px;
+  margin-bottom: 20px;
+}
+
+.post-search {
+  border-radius: 10px;
+  margin-bottom: 15px;
+  border-width: thin;
+  background-color: transparent;
+}
+
+.post-search-button {
+  border-radius: 10px;
+  margin-bottom: 15px;
+  border-width: thin;
+  background-color: #03AAD2;
+  width: 87px;
+  color: #EEE;
+}
+
+.like_posts {
+  padding: 3px;
+  border-radius: 8px;
+  background-color: #FF69B4;
+  border: none;
+  color: #EEE;
+  width: 130px;
+
+}
+
+.my_posts {
+  padding: 3px;
+  border-radius: 8px;
+  background-color: #FFD700;
+  border: none;
+  color: #EEE;
+  width: 135px;
+}
+
 
 .like_btn,
 .un_like_btn {
@@ -170,6 +240,7 @@ li {
   font-size: 12px;
   color: #999;
   font-weight: bold;
+  padding-top: 15px;
 }
 
 .detsail_post_title {
@@ -184,6 +255,7 @@ li {
 .detail_inner_head {
   display: flex;
   justify-content: space-between;
+  padding-left: 75%;
 }
 
 .edit-modal-open {
@@ -219,8 +291,19 @@ li {
   font-size: 12px;
 }
 
+.comment-create {
+  padding-left: 90%;
+}
+
 .post_status span {
   font-size: 12px;
+}
+
+.post-subCategories-comment {
+  padding: 3px;
+  border-radius: 8px;
+  background-color: #03AAD2;
+  color: #FFF;
 }
 
 /* 掲示板　カテゴリー */
@@ -261,7 +344,6 @@ li {
   height: 80vh;
   overflow: scroll;
   padding: 10px;
-  background: #FFF;
   border-radius: 5px;
 }
 
@@ -270,8 +352,13 @@ li {
 }
 
 .one_person {
-  width: 250px;
-  height: 250px;
+  width: 230px;
+  height: 230px;
+  padding: 30px;
+  margin: 7px;
+  background: #FFF;
+  box-shadow: 0 10px 25px 0 rgba(0, 0, 0, .1);
+  font-weight: bold;
 }
 
 .search_conditions span {
@@ -291,4 +378,78 @@ li {
 
 .subject_inner {
   display: none;
+}
+
+/* calendar.blade.php キャンセル機能 */
+input#text-modal {
+  width: 15px;
+  padding: 3px;
+}
+
+/* カレンダー(reserve_detail.blade.php) */
+.calendar-detail {
+  background: #eee;
+}
+
+.calendar-detail tr:nth-child(odd) td {
+  background: #fff;
+}
+
+/* アコーディオンメニュー */
+.accordion-container {
+  display: flex;
+  position: relative;
+  border-top: none;
+  outline: 0;
+  cursor: pointer;
+}
+
+.accordion-container .accordion-title {
+  display: block;
+  position: relative;
+  /* margin: 0; */
+  font-size: 1.25em;
+  font-weight: normal;
+  color: #fff;
+  cursor: pointer;
+  /* width: 50px; */
+  height: 17px;
+  /* padding-left: 50px; */
+}
+
+.menu {
+  position: absolute;
+  top: 45px;
+  width: 102%;
+  height: 224px;
+  /* padding: 30px; */
+  /* opacity: 0; */
+  transition: .3s ease-in-out;
+  /* pointer-events: none; */
+  transform: translateY(-30px);
+  /* padding: 10px 10px 20px; */
+  /* right: 0px; */
+  /* border: 1px solid;
+  border-color: darkblue; */
+  /* margin-left: 70px; */
+  text-align: center;
+  display: flex;
+  flex-flow: column;
+  /* padding: 32px; */
+  justify-content: space-between;
+}
+
+.accordion-title:after {
+  content: "";
+  position: absolute;
+  right: 25px;
+  top: 38%;
+  transition: all 0.2s ease-in-out;
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-top: solid 2px #fff;
+  border-right: solid 2px #fff;
+  border-color: #494949;
+  transform: rotate(135deg);
 }
