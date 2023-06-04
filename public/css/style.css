@@ -6,6 +6,14 @@
   padding: 0;
 }
 
+/* Atlas */
+.atlas {
+  padding-left: 39%;
+  padding-top: 80px;
+  margin-bottom: 10%;
+  height: 30px;
+}
+
 /* body */
 .all_content {
   background: #ECF1F6;
@@ -464,9 +472,8 @@ input#text-modal {
   display: block;
   position: relative;
   /* margin: 0; */
-  font-size: 1.25em;
+  font-size: 1em;
   font-weight: normal;
-  color: #fff;
   cursor: pointer;
   /* width: 50px; */
   height: 17px;
@@ -476,8 +483,8 @@ input#text-modal {
 .menu {
   position: absolute;
   top: 45px;
-  width: 102%;
-  height: 224px;
+  width: 70%;
+  height: 160px;
   /* padding: 30px; */
   /* opacity: 0; */
   transition: .3s ease-in-out;
@@ -488,7 +495,7 @@ input#text-modal {
   /* border: 1px solid;
   border-color: darkblue; */
   /* margin-left: 70px; */
-  text-align: center;
+  /* text-align: center; */
   display: flex;
   flex-flow: column;
   /* padding: 32px; */
