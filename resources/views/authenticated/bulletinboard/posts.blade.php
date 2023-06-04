@@ -44,15 +44,14 @@
   </div>
   </div>
 
-  <p>カテゴリー</p>
+  <p>カテゴリー検索</p>
   <!-- アコーディオンメニュー -->
   <div id="accordion" class="accordion-container">
   <ul class="menu">
   @foreach($categories as $category)
-  <li class="main_categories" category_id="{{ $category->id }}"><span>{{ $category->main_category }}</span></li>
-
   <div class="accordion-title js-accordion-title">
-  </div>
+  <li class="main_categories" category_id="{{ $category->id }}"><span>{{ $category->main_category }}</span></li>
+</div>
   @foreach($category->subCategories as $sub_category)
   <li><input type="submit" name="category_word" class="category_btn btn-secondary" value="{{ $sub_category->sub_category }}" form="postSearchRequest"></li>
   @endforeach

@@ -24,7 +24,8 @@
           <span>予約日:<input type="text" name="date" style="border:none;" readonly></span>
         </div>
         <div class="modal-inner-body w-50 m-auto">
-          <span>時間:リモ<input type="text" name="part" style="border:none;" readonly>部</span>
+          <span>時間:リモ<input id="text-modal" type="text" name="part" style="border:none;" readonly>部</span>
+          <p>上記の予約をキャンセルしてもよろしいですか？</p>
         </div>
         <div class="w-50 m-auto edit-modal-btn d-flex">
           <a class="js-modal-close btn btn-primary d-inline-block" href="">閉じる</a>

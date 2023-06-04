@@ -101,10 +101,10 @@
         </div>
       </div>
       <div>
-        <input type="reset" class="btn btn-link" value="リセット" form="userSearchRequest">
+        <input type="reset" class="reset-button" value="リセット" form="userSearchRequest">
       </div>
       <div>
-        <input type="submit" class="btn btn-info" name="search_btn" value="検索" form="userSearchRequest">
+        <input type="submit" class="search-submit" name="search_btn" value="検索" form="userSearchRequest">
       </div>
     </div>
     <form action="{{ route('user.show') }}" method="get" id="userSearchRequest"></form>
