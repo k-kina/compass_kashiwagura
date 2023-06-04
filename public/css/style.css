@@ -367,7 +367,6 @@ span.day_count3 {
 
 .search_conditions_inner {
   display: none;
-  background: #FFF;
 }
 
 .subject_edit_btn {
@@ -405,6 +404,35 @@ span.day_count3 {
   width: 67px;
 }
 
+.engineer {
+  background-color: #CCCCCC;
+  border-radius: 10px;
+  border: none;
+  height: 30px;
+  margin-bottom: 15px;
+  width: 67px;
+}
+
+.reset-button {
+  padding-left: 75px;
+  padding-right: 75px;
+  color: #03AAD2;
+  border: none;
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.search-submit {
+  padding: 3px;
+  border-radius: 8px;
+  background-color: #03AAD2;
+  padding-left: 90px;
+  padding-right: 90px;
+  margin-bottom: 20px;
+  color: #FFF;
+  border: none;
+}
+
 /* calendar.blade.php キャンセル機能 */
 input#text-modal {
   width: 15px;
@@ -412,13 +440,16 @@ input#text-modal {
 }
 
 /* カレンダー(reserve_detail.blade.php) */
+
 .calendar-detail {
-  background: #eee;
+  background: #fff;
 }
 
 .calendar-detail tr:nth-child(odd) td {
-  background: #fff;
+  background: #EEFFFF;
 }
+
+
 
 /* アコーディオンメニュー */
 .accordion-container {
