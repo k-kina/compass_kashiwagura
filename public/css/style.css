@@ -211,7 +211,7 @@ span.day_count3 {
 .like_posts {
   padding: 3px;
   border-radius: 8px;
-  background-color: #FF69B4;
+  background-color: #FFBBFF;
   border: none;
   color: #EEE;
   width: 130px;
@@ -221,7 +221,7 @@ span.day_count3 {
 .my_posts {
   padding: 3px;
   border-radius: 8px;
-  background-color: #FFD700;
+  background-color: #FFFFBB;
   border: none;
   color: #EEE;
   width: 135px;
