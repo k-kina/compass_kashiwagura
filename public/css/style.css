@@ -26,10 +26,13 @@ li {
 
 /* サイドバー */
 .sidebar {
-  width: 175px;
+  width: 210px;
   height: 100vh;
   background-color: #03AAD2;
   font-weight: bold;
+  color: #FFF;
+  padding-top: 20px;
+  padding-left: 15px;
 }
 
 .main-container {
@@ -38,6 +41,7 @@ li {
 
 .sidebar p a {
   color: #FFF;
+  padding-left: 10px;
 }
 
 /* ログイン画面 */
