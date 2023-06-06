@@ -50,11 +50,11 @@ li {
   height: 100vh;
   background-color: #d7de12;
   background-image: linear-gradient(0deg, #87CEFA 0%, #008BBB 60%);
-  color: #FFFFFF;
 }
 
 .border {
   border-radius: 10px;
+  background-color: #FFF;
 }
 
 /* マイページ */
@@ -481,7 +481,6 @@ input#text-modal {
   font-weight: normal;
   cursor: pointer;
   /* width: 50px; */
-  height: 17px;
   /* padding-left: 50px; */
 }
 
@@ -489,7 +488,6 @@ input#text-modal {
   position: absolute;
   top: 45px;
   width: 70%;
-  height: 160px;
   /* padding: 30px; */
   /* opacity: 0; */
   transition: .3s ease-in-out;
