@@ -52,8 +52,10 @@
   <div class="accordion-title js-accordion-title">
   <li class="main_categories" category_id="{{ $category->id }}"><span>{{ $category->main_category }}</span></li>
 </div>
+<div class="accordion-content">
   @foreach($category->subCategories as $sub_category)
   <li><input type="submit" name="category_word" class="category_btn btn-secondary" value="{{ $sub_category->sub_category }}" form="postSearchRequest"></li>
+  </div>
   @endforeach
   @endforeach
   </ul>
