@@ -65,12 +65,16 @@ $(function () {
 
 });
 
-jQuery(function ($) {
-  $('.js-accordion-title').on('click', function () {
-    //クリックでコンテンツを開閉
-    $(this).next().slideToggle(200);
-    //矢印の向きを変更
-    $(this).toggleClass('open', 200);
-  }).next().hide();
-
+// /アコーディオンメニュー/
+$(function () {
+  // .js-accordion-titleタイトルをクリックすると
+  $(".js-accordion-title").on("click", function () {
+    // クリックしたjs-accordion-titleの次の要素を開閉(ここではサブカテゴリーの<li></li>要素)
+    $(this).next().slideToggle(300);
+    // タイトルにopenクラスを付け外しして矢印の向きを変更
+    $(this).toggleClass("open", 300);
+  });
 });
+// js-accordion-title"はhtmlの<li class="main_categories" category_id="{{ $category->id }}"><span>{{ $category->main_category }}</span></li>を指す
+// $(this) = js-accordion-title" の要素自体を指す
+// 300という数字は、アニメーションの時間。単位はミリ秒なので、300の場合は0.3秒
