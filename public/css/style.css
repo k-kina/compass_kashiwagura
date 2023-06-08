@@ -52,9 +52,13 @@ li {
   background-image: linear-gradient(0deg, #87CEFA 0%, #008BBB 60%);
 }
 
+.login-text {
+  background-color: #FFF;
+  border-radius: 10px;
+}
+
 .border {
   border-radius: 10px;
-  background-color: #FFF;
 }
 
 /* マイページ */
