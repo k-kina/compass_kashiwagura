@@ -480,33 +480,22 @@ input#text-modal {
 .accordion-container .accordion-title {
   display: block;
   position: relative;
-  /* margin: 0; */
   font-size: 1em;
   font-weight: normal;
   cursor: pointer;
-  /* width: 50px; */
-  /* padding-left: 50px; */
 }
 
+/*メイン/サブカテゴリーの表示 */
 .menu {
   position: absolute;
-  top: 45px;
   width: 70%;
-  /* padding: 30px; */
-  /* opacity: 0; */
-  transition: .3s ease-in-out;
-  /* pointer-events: none; */
-  transform: translateY(-30px);
-  /* padding: 10px 10px 20px; */
-  /* right: 0px; */
-  /* border: 1px solid;
-  border-color: darkblue; */
-  /* margin-left: 70px; */
-  /* text-align: center; */
-  display: flex;
   flex-flow: column;
-  /* padding: 32px; */
   justify-content: space-between;
+}
+
+/* コンテンツ部分で、アコーディオンメニューを開く前はサブカテゴリーを非表示にする */
+.accordion-content {
+  display: none;
 }
 
 .accordion-title:after {
@@ -514,7 +503,8 @@ input#text-modal {
   position: absolute;
   right: 25px;
   top: 38%;
-  transition: all 0.2s ease-in-out;
+  transition: transform .3s ease-in-out,
+    top .3s ease-in-out;
   display: block;
   width: 8px;
   height: 8px;
@@ -522,4 +512,12 @@ input#text-modal {
   border-right: solid 2px #fff;
   border-color: #494949;
   transform: rotate(135deg);
+  /*// 最初の矢印は下向き */
+}
+
+.accordion-title.open::after {
+  top: 45%;
+  /*// 矢印の位置を少し変える */
+  transform: rotate(-45deg);
+  /*// 矢印を上向きに変える */
 }
