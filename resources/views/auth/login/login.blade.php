@@ -17,7 +17,7 @@
   <form action="{{ route('loginPost') }}" method="POST">
 
   <figure class="atlas">
-  <img src="images/image/atlas-black.png" >
+  <img src="{{ asset('images/image/atlas-black.png') }}" >
 </figure>
 
     <div class="w-100 d-flex" style="align-items:center; justify-content:center;">
