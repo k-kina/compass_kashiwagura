@@ -201,38 +201,39 @@ span.day_count3 {
 }
 
 .post-search {
-  border-radius: 10px;
+  border-radius: 5px;
   margin-bottom: 15px;
   border-width: thin;
   background-color: transparent;
 }
 
 .post-search-button {
-  border-radius: 10px;
+  border-radius: 5px;
   margin-bottom: 15px;
   border-width: thin;
   background-color: #03AAD2;
   width: 87px;
   color: #EEE;
+  margin-left: 3px;
 }
 
 .like_posts {
   padding: 3px;
   border-radius: 8px;
-  background-color: #FFBBFF;
+  background-color: #DB7093;
   border: none;
   color: #EEE;
-  width: 130px;
+  margin-right: 10px;
 
 }
 
 .my_posts {
   padding: 3px;
   border-radius: 8px;
-  background-color: #FFFFBB;
+  background-color: #FFD700;
   border: none;
   color: #EEE;
-  width: 135px;
+  width: 120px;
 }
 
 
@@ -249,6 +250,65 @@ span.day_count3 {
 .error_message {
   font-size: 12px;
   color: red;
+}
+
+.category_search {
+  margin-left: 30px;
+}
+
+/* アコーディオンメニュー (posts.blade)*/
+.accordion-container {
+  display: flex;
+  position: relative;
+  border-top: none;
+  outline: 0;
+  cursor: pointer;
+}
+
+.accordion-container .accordion-title {
+  display: block;
+  position: relative;
+  font-size: 1em;
+  font-weight: normal;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+/*メイン/サブカテゴリーの表示 */
+.menu {
+  position: absolute;
+  width: 70%;
+  flex-flow: column;
+  justify-content: space-between;
+}
+
+/* コンテンツ部分で、アコーディオンメニューを開く前はサブカテゴリーを非表示にする */
+.accordion-content {
+  display: none;
+}
+
+.accordion-title:after {
+  content: "";
+  position: absolute;
+  right: 25px;
+  top: 38%;
+  transition: transform .3s ease-in-out,
+    top .3s ease-in-out;
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-top: solid 2px #fff;
+  border-right: solid 2px #fff;
+  border-color: #494949;
+  transform: rotate(135deg);
+  /*// 最初の矢印は下向き */
+}
+
+.accordion-title.open::after {
+  top: 45%;
+  /*// 矢印の位置を少し変える */
+  transform: rotate(-45deg);
+  /*// 矢印を上向きに変える */
 }
 
 /* 掲示板 詳細画面 */
@@ -337,12 +397,13 @@ span.day_count3 {
 }
 
 .category_btn {
-  font-size: 12px;
+  font-size: 15px;
   border-radius: 5px;
   padding: 0 5px;
   border: none;
-  background: #999;
-  color: #FFF;
+  text-decoration: underline;
+  margin-left: 10px;
+  margin-bottom: 10px;
 }
 
 .main_categories span,
@@ -464,60 +525,4 @@ input#text-modal {
 
 .calendar-detail tr:nth-child(odd) td {
   background: #EEFFFF;
-}
-
-
-
-/* アコーディオンメニュー */
-.accordion-container {
-  display: flex;
-  position: relative;
-  border-top: none;
-  outline: 0;
-  cursor: pointer;
-}
-
-.accordion-container .accordion-title {
-  display: block;
-  position: relative;
-  font-size: 1em;
-  font-weight: normal;
-  cursor: pointer;
-}
-
-/*メイン/サブカテゴリーの表示 */
-.menu {
-  position: absolute;
-  width: 70%;
-  flex-flow: column;
-  justify-content: space-between;
-}
-
-/* コンテンツ部分で、アコーディオンメニューを開く前はサブカテゴリーを非表示にする */
-.accordion-content {
-  display: none;
-}
-
-.accordion-title:after {
-  content: "";
-  position: absolute;
-  right: 25px;
-  top: 38%;
-  transition: transform .3s ease-in-out,
-    top .3s ease-in-out;
-  display: block;
-  width: 8px;
-  height: 8px;
-  border-top: solid 2px #fff;
-  border-right: solid 2px #fff;
-  border-color: #494949;
-  transform: rotate(135deg);
-  /*// 最初の矢印は下向き */
-}
-
-.accordion-title.open::after {
-  top: 45%;
-  /*// 矢印の位置を少し変える */
-  transform: rotate(-45deg);
-  /*// 矢印を上向きに変える */
 }
