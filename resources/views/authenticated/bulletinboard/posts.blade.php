@@ -43,25 +43,28 @@
   <input type="submit" name="my_posts" class="my_posts" value="自分の投稿" form="postSearchRequest">
   </div>
   </div>
-
+</div>
+<div class="category_search">
   <p>カテゴリー検索</p>
   <!-- アコーディオンメニュー -->
-  <div id="accordion" class="accordion-container">
+<div id="accordion" class="accordion-container">
   <ul class="menu">
   @foreach($categories as $category)
   <div class="accordion-title js-accordion-title">
   <li class="main_categories" category_id="{{ $category->id }}"><span>{{ $category->main_category }}</span></li>
 </div>
-<div class="accordion-content">
+  <div class="accordion-content">
   @foreach($category->subCategories as $sub_category)
-  <li><input type="submit" name="category_word" class="category_btn btn-secondary" value="{{ $sub_category->sub_category }}" form="postSearchRequest"></li>
+  <li><input type="submit" name="category_word" class="category_btn" value="{{ $sub_category->sub_category }}" form="postSearchRequest"></li>
+
+  @endforeach
   </div>
   @endforeach
-  @endforeach
+
   </ul>
   </div>
-  </div>
+</div>
   </div>
   <form action="{{ route('post.show') }}" method="get" id="postSearchRequest"></form>
-  </div>
+</div>
 @endsection
