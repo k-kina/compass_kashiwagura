@@ -61,6 +61,10 @@ li {
   border-radius: 10px;
 }
 
+.register-top {
+  background-color: #FFF;
+}
+
 /* マイページ */
 .user_status {
   border-radius: 10px;
